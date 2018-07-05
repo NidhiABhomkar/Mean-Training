@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Angular Custom Filter Example</title>
+		<script type="text/javascript" src="js/angular.min.js"></script>
+	
+	<script >
+		var app=angular.module('customFilterApp',[]);
+		/*app.controller('customFilterController',function ($scope){
+			$scope.name='l&t infotech';
+		});*/
+		app.filter('convertUpper',function(){
+			return function (item){
+				return item.toUpperCase();
+			};
+		});
+	</script>
+	</head>
+	<body ng-App="customFilterApp" >
+		<input type="text" ng-model="name"/>
+	<p>
+		{{ name | convertUpper }}
+	</p>
+</body>
+</html>

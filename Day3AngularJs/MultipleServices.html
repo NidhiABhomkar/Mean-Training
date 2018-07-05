@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script  src="js/angular.min.js"></script>
+	<script>
+		var app=angular.module('angularCustApp',[]);
+		
+		
+		app.service('CalService',function(){
+			this.sqrt=function(a){
+			return Math.sqrt(a);
+		}
+
+		this.power=function(a,b){
+			return Math.pow(a,b);
+		}
+		this.factorial=function(a){
+			var fact=1;
+			for(var i=1;i<=a;i++)
+			{
+				fact*=i;
+			}
+			return fact;
+		}
+
+		});
+		app.controller('customCntrl',function($scope,CalService){
+			$scope.sqrt=function(){
+				return CalService.sqrt($scope.value);
+			}
+		$scope.power=function(){
+				return CalService.power($scope.value,$scope.value1);
+			}
+		
+		$scope.factorial=function(){
+				return CalService.factorial($scope.value);
+			}
+		});
+</script>
+</head>
+<body ng-app="angularCustApp" ng-controller="customCntrl">
+	Enter a number:<input type="number" ng-model="value" />
+	Enter a power:<input type="number" ng-model="value1" />
+	<p>Square root :{{sqrt()}}</p>
+	<p>
+		Power:{{power()}}
+	</p>
+	<p>
+		Factorial:{{factorial()}}
+	</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
