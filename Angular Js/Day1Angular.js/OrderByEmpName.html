@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+		table{
+			border-collapse: 0px;
+			border:1px solid blue;
+		}
+		th{
+			background-color: pink;
+		}
+	</style>
+		<script src="js/angular.min.js">
+		</script>
+	</head>
+	<body ng-App="" ng-init=" employees=[{empId:'e1001',empName:'Nidhi',basicPay:30000},
+										{empId:'e1002',empName:'Suman',basicPay:25000},
+										{empId:'e1003',empName:'Shrvan',basicPay:30000},
+										{empId:'e1004',empName:'Arpitha',basicPay:50000},
+										{empId:'e1005',empName:'Bhuvan',basicPay:50000}]" >
+
+	
+	<!--<div ng-repeat="employee in employees |orderBy:empName">
+				{{ empName }}	
+				</div>	-->							
+	<table cellpadding="10" cellspacing="10">
+		<tr>
+			<th>EmployeeId</th>
+			<th>EmployeeName</th>
+			<th>BasicPay</th>
+		</tr>
+		//<tr ng-repeat=" employee in employees |orderBy:'empName': true"> 
+		<tr ng-repeat=" employee in employees |orderBy:'-empName'"> 
+			<td> {{employee.empId}} </td>
+			<td> {{employee.empName}} </td>
+			<td> {{employee.basicPay}} </td>
+						
+		</tr>
+	</table>
+</body>
+</html>

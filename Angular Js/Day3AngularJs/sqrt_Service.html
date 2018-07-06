@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script  src="js/angular.min.js"></script>
+	<script>
+		var app=angular.module('angularCustApp',[]);
+		
+		
+		app.service('CalService',function(){
+			this.sqrt=function(a){
+			return Math.sqrt(a);
+		}
+		});
+		app.controller('customCntrl',function($scope,CalService){
+			$scope.sqrt=function(){
+				return CalService.sqrt($scope.value);
+			}
+		});
+</script>
+</head>
+<body ng-app="angularCustApp" ng-controller="customCntrl">
+	Enter a number:<input type="number" ng-model="value" />
+	<p>Square root :{{ sqrt() }}</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
