@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Temperature</title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script>
+		var app=angular.module("TempConversion",[]);
+		app.service('CalService',function(){
+			this.fahren=function(temperature)
+			{
+				var far=(temperature-32)*5/9;
+			
+			return far;
+			}
+			this.celsius=function(temperature)
+			{
+				 var cel= temperature*(9/5)+32;
+			
+			return cel;
+			}
+
+		});
+		app.controller('TempCntrl',function($scope,CalService){
+			$scope.fahren=function()
+			{
+				return CalService.fahren($scope.value);
+			}
+
+			$scope.celsius=function(){
+				return CalService.celsius($scope.value);
+			}
+		});
+
+	</script>
+</head>
+<body ng-App="TempConversion" ng-controller="TempCntrl">
+	Enter the value:<input type="number" ng-model="value" />
+	<p>fahrenheit: {{fahren()}} </p>
+	<p>celsius: {{celsius()}} </p>
+
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		button{
+				border-radius: 50%;
+				background-color:pink;
+		}
+	</style>
+	 </head>
+<script src="js/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+<button ng-click="f1()">Toggle</button>
+
+<div ng-show="showMe">
+    <h1>Phones</h1>
+    <ul>
+    <li>Apple</li>
+    <li>Samsung</li>
+    <li>Blackberry</li>
+	</ul>
+</div>
+
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.showMe = false;
+    $scope.f1 = function() {
+        $scope.showMe = !$scope.showMe;
+    }
+});
+</script>
+
+
+
+</body>
+</html>
